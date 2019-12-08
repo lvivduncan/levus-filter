@@ -25,15 +25,15 @@
     <!-- #brand-select -->
     <hr>
     <p>- Колір</p>
-    <div id="color-select">
-        <select id="filter-colors">
-            <option value=""></option>
-            <option value="color-1">color-1</option>
-            <option value="color-2">color-2</option>
-        </select>
-        <!-- #filter-brands -->                        
+    <div id="filter-colors">                        
+        <label>
+            <input type="checkbox" value="color-1"> color-1
+        </label>
+        <label>
+            <input type="checkbox" value="color-2"> color-2
+        </label>
     </div>
-    <!-- #brand-select -->  
+    <!-- #filter-colors -->  
     <hr> 
     <p>- Характеристики</p>
     <div id="features">
