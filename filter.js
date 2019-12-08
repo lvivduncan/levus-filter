@@ -62,25 +62,19 @@
 		const filterBrands = aside.querySelector('#filter-brands').value;
 		
 		// кольори
-		const filterColors = aside.querySelector('#filter-colors').value;
+		const filterColors = [...aside.querySelectorAll('#filter-colors input:checked')].map(element => element.value);
+
+		console.log(filterColors)
 		
 		for (const item of items) {
-
 			if(
-				(+filterMin.value <= item.dataset.price) 
-				&& 
-				(+filterMax.value >= item.dataset.price)
-				&&
-                (!filterBrands || filterBrands === item.dataset.brand)
-                &&
-                (!filterColors || filterColors === item.dataset.color)
-                &&
-				(!filterFeatures || item.dataset.features.searchItem(filterFeatures))
-				&&
-				(!filterSizes || item.dataset.sizes.searchItem(filterSizes))
+				(+filterMin.value <= item.dataset.price) && (+filterMax.value >= item.dataset.price)
+				&& (!filterBrands || filterBrands === item.dataset.brand)
+                && (!filterColors || item.dataset.color.searchItem(filterColors))
+                && (!filterFeatures || item.dataset.features.searchItem(filterFeatures))
+				&& (!filterSizes || item.dataset.sizes.searchItem(filterSizes))
 			){
 				item.parentElement.parentElement.style.display = 'block';
-
 			} else {
 				item.parentElement.parentElement.style.display = 'none';
 			}
